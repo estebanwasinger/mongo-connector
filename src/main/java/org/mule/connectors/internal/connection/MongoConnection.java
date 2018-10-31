@@ -1,15 +1,15 @@
 package org.mule.connectors.internal.connection;
 
-import java.lang.String;
+import com.mongodb.client.MongoClient;
 
 public class MongoConnection {
-  private String clientId;
+  private MongoClient mongoClient;
 
-  public MongoConnection(String clientId) {
-    this.clientId = clientId;
+  public MongoConnection(MongoClient mongoClient) {
+    this.mongoClient = mongoClient;
   }
 
-  public String getClientId() {
-    return this.clientId;
+  public MongoClient getMongoClient() {
+    return mongoClient;
   }
 }
