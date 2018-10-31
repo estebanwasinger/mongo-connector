@@ -6,6 +6,7 @@ import org.mule.runtime.api.connection.ConnectionException;
 import org.mule.runtime.api.connection.ConnectionValidationResult;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
 
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 
@@ -18,8 +19,9 @@ public class MongoConnectionProvider implements CachedConnectionProvider<MongoCo
   private String connectionString;
 
   public MongoConnection connect() throws ConnectionException {
+    MongoClientURI mongoClientURI = new MongoClientURI(connectionString);
     MongoClient mongoClient = MongoClients.create(connectionString);
-    return new MongoConnection(mongoClient);
+    return new MongoConnection(mongoClient, mongoClientURI.getDatabase());
   }
 
   public void disconnect(MongoConnection connection) {
