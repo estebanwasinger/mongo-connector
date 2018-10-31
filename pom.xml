@@ -24,6 +24,15 @@
         <mavenResourcesVersion>3.0.2</mavenResourcesVersion>
     </properties>
 
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.8.2</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -53,14 +62,6 @@
                 <groupId>com.mulesoft.munit</groupId>
                 <artifactId>munit-extensions-maven-plugin</artifactId>
                 <version>${munit.extensions.maven.plugin.version}</version>
-                <configuration>
-                    <targetRuntimes>
-                        <!-- These are the runtime versions to test the connector against, multiple can be configured -->
-                        <!-- MULE:4.X.X to run against Community versions -->
-                        <!-- MULE_EE:4.X.X to run against Enterprise versions -->
-                        <targetRuntime>MULE:4.1.2</targetRuntime>
-                    </targetRuntimes>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
